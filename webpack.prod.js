@@ -24,7 +24,7 @@ module.exports = merge(common, {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, // 4. Salva o css em arquivos
+          // MiniCssExtractPlugin.loader, // 4. Salva o css em arquivos
           "css-loader", // 3. De css para vanilla js
           {
             loader: "postcss-loader", // 2. Adiciona Autoprefixer no CSS
