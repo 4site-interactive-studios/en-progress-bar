@@ -2,7 +2,9 @@
 import scss from "./sass/main.scss";
 
 const setProgressbar = () => {
-  const progressIndicator = document.querySelector("span[data-engrid-progress-indicator]");
+  const progressIndicator = document.querySelector(
+    "span[data-engrid-progress-indicator]"
+  );
 
   if (!progressIndicator || !pageJson) {
     return;
@@ -11,8 +13,10 @@ const setProgressbar = () => {
   const pageCount = pageJson.pageCount;
   const pageNumber = pageJson.pageNumber;
 
-  const prevPercentage = pageNumber === 1 ? 0 : Math.ceil( (pageNumber - 1) / pageCount * 100 );
-  const percentage = pageNumber === 1 ? 0 : Math.ceil( pageNumber / pageCount * 100 );
+  const prevPercentage =
+    pageNumber === 1 ? 0 : Math.ceil(((pageNumber - 1) / pageCount) * 100);
+  const percentage =
+    pageNumber === 1 ? 0 : Math.ceil((pageNumber / pageCount) * 100);
   const scalePrev = prevPercentage / 100;
   const scale = percentage / 100;
 
@@ -24,7 +28,9 @@ const setProgressbar = () => {
 
   if (percentage !== prevPercentage) {
     const progress = document.querySelector(".progress");
-    requestAnimationFrame(function(){ progress.style.transform = `scaleX(${scale})`; });
+    requestAnimationFrame(function() {
+      progress.style.transform = `scaleX(${scale})`;
+    });
   }
-}
+};
 setProgressbar();

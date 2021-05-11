@@ -1,21 +1,9 @@
 const path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/index.js"
+    main: "./src/index.js",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Código Falado Rules",
-      template: "./src/index.html",
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: false
-      }
-    })
-  ],
   module: {
     rules: [
       {
@@ -25,9 +13,9 @@ module.exports = {
           options: {
             name: "[name].[hash].[ext]",
             outputPath: "imgs",
-            esModule: false
-          }
-        }
+            esModule: false,
+          },
+        },
       },
       {
         test: /\.js$/,
@@ -36,16 +24,16 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-proposal-object-rest-spread"]
-          }
-        }
+            plugins: ["@babel/plugin-proposal-object-rest-spread"],
+          },
+        },
       },
       {
         test: /\.(html)$/,
         use: {
-          loader: "html-loader"
-        }
-      }
-    ]
-  }
+          loader: "html-loader",
+        },
+      },
+    ],
+  },
 };
