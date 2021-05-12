@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    main: "./src/index.js",
+    "en-progress-bar": "./src/index.js",
   },
   module: {
     rules: [
