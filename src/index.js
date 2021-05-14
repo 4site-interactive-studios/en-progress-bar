@@ -2,9 +2,8 @@
 import scss from "./sass/main.scss";
 
 const setProgressbar = () => {
-  const progressIndicator = document.querySelector(
-    "span[data-engrid-progress-indicator]"
-  );
+
+  const progressIndicator = document.querySelector("span[data-engrid-progress-indicator]");
 
   if (!progressIndicator || !pageJson) {
     return;
@@ -21,13 +20,13 @@ const setProgressbar = () => {
   const scale = percentage / 100;
 
   progressIndicator.innerHTML = `
-    <div class="indicator-wrap">
-      <span class="progress" style="transform: scaleX(${scalePrev});"></span>
-      <span class="percentage">${percentage}%</span>
+    <div class="indicator__wrap">
+      <span class="indicator__progress" style="transform: scaleX(${scalePrev});"></span>
+      <span class="indicator__percentage">${percentage}<span class="indicator__percentage-sign">%</span></span>
     </div>`;
 
   if (percentage !== prevPercentage) {
-    const progress = document.querySelector(".progress");
+    const progress = document.querySelector(".indicator__progress");
     requestAnimationFrame(function() {
       progress.style.transform = `scaleX(${scale})`;
     });
