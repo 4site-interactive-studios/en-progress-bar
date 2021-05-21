@@ -4,6 +4,8 @@ import scss from "./sass/main.scss";
 const setProgressbar = () => {
 
   const progressIndicator = document.querySelector("span[data-engrid-progress-indicator]");
+  const maxAttribute = progressIndicator.hasAttribute("max");
+  const maxValue = maxAttribute === true ? progressIndicator.getAttribute("max") : 100;
 
   if (!progressIndicator || !pageJson) {
     return;
@@ -12,10 +14,8 @@ const setProgressbar = () => {
   const pageCount = pageJson.pageCount;
   const pageNumber = pageJson.pageNumber;
 
-  const prevPercentage =
-    pageNumber === 1 ? 0 : Math.ceil(((pageNumber - 1) / pageCount) * 100);
-  const percentage =
-    pageNumber === 1 ? 0 : Math.ceil((pageNumber / pageCount) * 100);
+  const prevPercentage = pageNumber === 1 ? 0 : Math.ceil(((pageNumber - 1) / pageCount) * maxValue);
+  const percentage = pageNumber === 1 ? 0 : Math.ceil((pageNumber / pageCount) * maxValue);
   const scalePrev = prevPercentage / 100;
   const scale = percentage / 100;
 
