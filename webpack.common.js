@@ -1,9 +1,23 @@
 const path = require("path");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
 
 module.exports = {
   entry: {
     "en-progress-bar": "./src/index.js",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Código Falado Rules",
+      template: "./src/index.html",
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: false
+      }
+    })
+  ],
+
   module: {
     rules: [
       {
