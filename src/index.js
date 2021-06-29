@@ -4,10 +4,13 @@ import scss from "./sass/main.scss";
 const setProgressbar = () => {
 
   const progressIndicator = document.querySelector("span[data-engrid-progress-indicator]");
-  const maxAttribute = progressIndicator.hasAttribute("max");
-  const maxValue = maxAttribute === true ? progressIndicator.getAttribute("max") : 100;
-  const amountValue = progressIndicator.getAttribute("amount");
 
+  if(progressIndicator && pageJson){
+    const maxAttribute = progressIndicator.hasAttribute("max");
+    const maxValue = maxAttribute === true ? progressIndicator.getAttribute("max") : 100;
+    const amountValue = progressIndicator.getAttribute("amount");
+  }
+    
   if (!progressIndicator || !pageJson) {
     return;
   }
